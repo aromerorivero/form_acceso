@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from"react-router-dom";
+import Form from "./pages/Form";
+import Bienvenida from "./pages/Bienvenida";
+import { authenticate } from "./services/Autentificador";
+import './index.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+            <div className="container">
+                <Routes>
+                    <Route path="/" element={<Form authenticate={authenticate} />} />
+                    <Route path="/bienvenida" element={<Bienvenida />} />
+                </Routes>
+            </div>
+    );
 }
 
 export default App;
